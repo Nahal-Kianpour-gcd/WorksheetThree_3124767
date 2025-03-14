@@ -39,9 +39,18 @@ class ShapeTest {
 	}
 
 	@Test
-	void testTriangle() {
-		fail("Not yet implemented");
-	}
+    void testRightAngledTriangle() {
+        RightAngledTriangle triangle = new RightAngledTriangle("RightAngledTriangle", 3.0, 4.0);
+
+        assertEquals("RightAngledTriangle", triangle.getName());
+        assertEquals(3.0, triangle.getBase(), EPSILON);
+        assertEquals(4.0, triangle.getHeight(), EPSILON);
+
+        assertEquals((3.0 * 4.0) / 2, triangle.area(), EPSILON); // (base * height) / 2
+        assertEquals(3.0 + 4.0 + Math.sqrt(3.0 * 3.0 + 4.0 * 4.0), triangle.perimeter(), EPSILON); // a + b + hypotenuse
+
+        assertEquals("Shape: RightAngledTriangle, Base: 3.0, Height: 4.0", triangle.toString());
+    }
 
 	// INTEGRATION TEST (Initially failing)
 	@Test
