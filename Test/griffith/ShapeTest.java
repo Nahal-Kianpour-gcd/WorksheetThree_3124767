@@ -39,22 +39,38 @@ class ShapeTest {
 	}
 
 	@Test
-    void testRightAngledTriangle() {
-        RightAngledTriangle triangle = new RightAngledTriangle("RightAngledTriangle", 3.0, 4.0);
+	void testRightAngledTriangle() {
+		RightAngledTriangle triangle = new RightAngledTriangle("RightAngledTriangle", 3.0, 4.0);
 
-        assertEquals("RightAngledTriangle", triangle.getName());
-        assertEquals(3.0, triangle.getBase(), EPSILON);
-        assertEquals(4.0, triangle.getHeight(), EPSILON);
+		assertEquals("RightAngledTriangle", triangle.getName());
+		assertEquals(3.0, triangle.getBase(), EPSILON);
+		assertEquals(4.0, triangle.getHeight(), EPSILON);
 
-        assertEquals((3.0 * 4.0) / 2, triangle.area(), EPSILON); // (base * height) / 2
-        assertEquals(3.0 + 4.0 + Math.sqrt(3.0 * 3.0 + 4.0 * 4.0), triangle.perimeter(), EPSILON); // a + b + hypotenuse
+		assertEquals((3.0 * 4.0) / 2, triangle.area(), EPSILON); // (base * height) / 2
+		assertEquals(3.0 + 4.0 + Math.sqrt(3.0 * 3.0 + 4.0 * 4.0), triangle.perimeter(), EPSILON); // a + b + hypotenuse
 
-        assertEquals("Shape: RightAngledTriangle, Base: 3.0, Height: 4.0", triangle.toString());
-    }
+		assertEquals("Shape: RightAngledTriangle, Base: 3.0, Height: 4.0", triangle.toString());
+	}
 
-	// INTEGRATION TEST (Initially failing)
 	@Test
 	void testShapesIntegration() {
-		fail("Not yet implemented");
+		ArrayList<Shape> shapes = new ArrayList<>();
+
+		// Adding 2 instances of each shape to the list
+		shapes.add(new Circle("Circle1", 3.5));
+		shapes.add(new Circle("Circle2", 2.0));
+
+		shapes.add(new Rhombus("Rhombus1", 6.0, 8.0));
+		shapes.add(new Rhombus("Rhombus2", 5.0, 7.0));
+
+		shapes.add(new RightAngledTriangle("Triangle1", 3.0, 4.0));
+		shapes.add(new RightAngledTriangle("Triangle2", 6.0, 8.0));
+
+		// Loop through each shape and validate area & perimeter calculations
+		for (Shape shape : shapes) {
+			assertTrue(shape.area() > 0, "Area should be greater than zero for " + shape.getName());
+			assertTrue(shape.perimeter() > 0, "Perimeter should be greater than zero for " + shape.getName());
+		}
 	}
+
 }
