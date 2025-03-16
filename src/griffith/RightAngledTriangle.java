@@ -1,3 +1,6 @@
+/* Student name:Nahal Kianpour Lirharani
+ * Student number:3124767
+ */
 package griffith;
 
 // Subclass RightAngledTriangle, inherits from Shape

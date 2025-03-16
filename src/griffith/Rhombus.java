@@ -1,3 +1,6 @@
+/* Student name:Nahal Kianpour Lirharani
+ * Student number:3124767
+ */
 package griffith;
 
 // Subclass Rhombus, inherits from Shape
